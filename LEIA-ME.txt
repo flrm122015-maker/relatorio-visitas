@@ -1,0 +1,18 @@
+# Relatório de Visitas — PWA
+
+## Como publicar e instalar
+1. Publique **todos** os arquivos desta pasta em uma hospedagem HTTPS (por exemplo, Netlify, Vercel ou GitHub Pages). O service worker exige HTTPS (ou localhost).
+2. Abra o endereço publicado no celular. No Android/Chrome, use “Instalar app” ou o menu ⋮ → Instalar aplicativo. No iPhone/Safari, toque em Compartilhar → Adicionar à Tela de Início.
+3. Abra o ícone criado na tela inicial. Os registros são guardados no IndexedDB deste navegador/aparelho.
+
+## Funcionalidades
+- Cadastro, edição e exclusão de visitas/indicações.
+- Banco de dados local com busca, filtros e ordenação.
+- Consulta por data, seleção de vários registros e prévia de uma única mensagem para WhatsApp.
+- Exportação/importação de backup JSON.
+- Cache offline após o primeiro carregamento.
+
+## Importante
+Os dados não são enviados para servidor nem sincronizados entre aparelhos. Limpar os dados do navegador, desinstalar ou perder o aparelho pode apagar os registros. Exporte backups regularmente. O botão do WhatsApp apenas abre uma conversa com a mensagem preenchida; o envio é confirmado pelo usuário.
+
+Para testar no computador, sirva esta pasta por um servidor local (não abra index.html diretamente), por exemplo: `python -m http.server 8000`, e acesse `http://localhost:8000`.

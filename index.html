@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#b5122b"><meta name="description" content="Cadastro local de visitas e indicações com envio pelo WhatsApp.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Relatório de Visitas</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><div class="brand"><span class="mark">RV</span><div><strong>Relatório de Visitas</strong><small>Visitas e indicações</small></div></div><button id="installBtn" class="install hidden">Instalar app</button></header>
+<main>
+<section id="screen-form" class="screen active">
+<div class="heading"><div><p class="eyebrow">NOVO REGISTRO</p><h1>Registrar atividade</h1><p class="muted">Preencha os dados da visita ou indicação.</p></div><span class="heading-icon">✎</span></div>
+<form id="recordForm" class="panel">
+<input type="hidden" id="recordId">
+<label>Data <b>*</b><input id="date" type="date" required></label>
+<fieldset><legend>Tipo <b>*</b></legend><div class="choices"><label class="choice"><input type="radio" name="type" value="Visita" checked><span>🏢 Visita</span></label><label class="choice"><input type="radio" name="type" value="Indicação"><span>🎯 Indicação</span></label></div></fieldset>
+<div class="two"><label>Agência<input id="agency" autocomplete="off" placeholder="Ex.: 1234"></label><label>Conta Corrente<input id="account" autocomplete="off" placeholder="Ex.: 12345-6"></label></div>
+<label>Cliente<input id="client" placeholder="Nome do cliente"></label>
+<label>Negócio alvo<input id="target" placeholder="Oportunidade ou produto"></label>
+<label>Especialista<input id="specialist" placeholder="Nome do especialista"></label>
+<label>Informações complementares <span class="optional">opcional</span><textarea id="notes" rows="3" placeholder="Detalhes adicionais..."></textarea></label>
+<div class="form-actions"><button type="reset" class="btn secondary" id="clearBtn">Limpar</button><button class="btn primary" type="submit">Salvar cadastro <span>→</span></button></div>
+<p class="privacy">🔒 Seus registros ficam salvos somente neste aparelho.</p>
+</form></section>
+<section id="screen-db" class="screen">
+<div class="heading"><div><p class="eyebrow">SEUS REGISTROS</p><h1>Banco de dados</h1><p class="muted">Consulte, edite e organize seus cadastros.</p></div><span class="heading-icon">▤</span></div>
+<div class="stats"><strong id="totalCount">0</strong><span>registros salvos neste aparelho</span></div>
+<div class="panel tools"><input id="search" placeholder="Buscar cliente, negócio, agência..."><div class="two"><select id="typeFilter"><option value="">Todos os tipos</option><option>Visita</option><option>Indicação</option></select><select id="sortOrder"><option value="desc">Mais recentes</option><option value="asc">Mais antigos</option></select></div></div>
+<div id="dbList" class="records"></div>
+<div class="panel backup"><h3>Backup dos dados</h3><p class="muted">Exporte uma cópia para guardar ou importe um backup anterior.</p><div class="two"><button class="btn secondary" id="exportBtn">Exportar JSON</button><label class="btn secondary filebtn">Importar JSON<input id="importFile" type="file" accept="application/json,.json" hidden></label></div><p class="tiny">A limpeza dos dados do navegador pode apagar seus registros. Faça backups regularmente.</p></div>
+</section>
+<section id="screen-send" class="screen">
+<div class="heading"><div><p class="eyebrow">COMPARTILHAR RELATÓRIO</p><h1>Enviar por data</h1><p class="muted">Reúna os registros de um dia em uma única mensagem.</p></div><span class="heading-icon">↗</span></div>
+<div class="panel"><label>Selecione a data<input id="sendDate" type="date"></label><div class="select-all"><span id="dayCount">0 registros encontrados</span><button id="selectAll" class="text-btn">Selecionar todos</button></div></div>
+<div id="dayList" class="records"></div>
+<div class="panel preview"><div class="preview-head"><h3>Prévia da mensagem</h3><span id="selectedCount" class="pill">0 selecionados</span></div><pre id="messagePreview">Selecione uma data com registros para visualizar a mensagem.</pre><button id="whatsappBtn" class="btn whatsapp" disabled>◉ Enviar pelo WhatsApp</button><p class="tiny">O WhatsApp abrirá com o texto preenchido. Você confirma o envio no aplicativo.</p></div>
+</section>
+</main>
+<nav class="bottom"><button data-screen="form" class="nav-item active"><span>＋</span>Novo</button><button data-screen="db" class="nav-item"><span>▤</span>Banco de dados</button><button data-screen="send" class="nav-item"><span>↗</span>Enviar por data</button></nav>
+<div id="toast" role="status" class="toast"></div>
+<script src="app.js"></script>
+</body></html>
