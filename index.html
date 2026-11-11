@@ -15,7 +15,7 @@
 <form id="recordForm" class="panel">
 <input type="hidden" id="recordId">
 <label>Data <b>*</b><input id="date" type="date" required></label>
-<fieldset><legend>Tipo <b>*</b></legend><div class="choices"><label class="choice"><input type="radio" name="type" value="Visita" checked><span>🏢 Visita</span></label><label class="choice"><input type="radio" name="type" value="Indicação"><span>🎯 Indicação</span></label></div></fieldset>
+<fieldset><legend>Tipo <b>*</b></legend><div class="choices"><label class="choice"><input type="radio" name="type" value="Visita" checked><span>🏢 Visita presencial</span></label><label class="choice"><input type="radio" name="type" value="Indicação"><span>🎯 Indicação</span></label><label class="choice"><input type="radio" name="type" value="Visita por telefone"><span>📞 Visita por telefone</span></label></div></fieldset>
 <div class="two"><label>Agência<input id="agency" autocomplete="off" placeholder="Ex.: 1234"></label><label>Conta Corrente<input id="account" autocomplete="off" placeholder="Ex.: 12345-6"></label></div>
 <label>Cliente<input id="client" placeholder="Nome do cliente"></label>
 <label>Negócio alvo<input id="target" placeholder="Oportunidade ou produto"></label>
@@ -27,7 +27,7 @@
 <section id="screen-db" class="screen">
 <div class="heading"><div><p class="eyebrow">SEUS REGISTROS</p><h1>Banco de dados</h1><p class="muted">Consulte, edite e organize seus cadastros.</p></div><span class="heading-icon">▤</span></div>
 <div class="stats"><strong id="totalCount">0</strong><span>registros salvos neste aparelho</span></div>
-<div class="panel tools"><input id="search" placeholder="Buscar cliente, negócio, agência..."><div class="two"><select id="typeFilter"><option value="">Todos os tipos</option><option>Visita</option><option>Indicação</option></select><select id="sortOrder"><option value="desc">Mais recentes</option><option value="asc">Mais antigos</option></select></div></div>
+<div class="panel tools"><input id="search" placeholder="Buscar cliente, negócio, agência..."><div class="two"><select id="typeFilter"><option value="">Todos os tipos</option><option value="Visita">Visita presencial</option><option>Indicação</option><option>Visita por telefone</option></select><select id="sortOrder"><option value="desc">Mais recentes</option><option value="asc">Mais antigos</option></select></div></div>
 <div id="dbList" class="records"></div>
 <div class="panel backup"><h3>Backup dos dados</h3><p class="muted">Exporte uma cópia para guardar ou importe um backup anterior.</p><div class="two"><button class="btn secondary" id="exportBtn">Exportar JSON</button><label class="btn secondary filebtn">Importar JSON<input id="importFile" type="file" accept="application/json,.json" hidden></label></div><p class="tiny">A limpeza dos dados do navegador pode apagar seus registros. Faça backups regularmente.</p></div>
 </section>
